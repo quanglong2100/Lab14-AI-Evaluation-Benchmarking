@@ -33,8 +33,7 @@ class BenchmarkRunner:
             "retrieval": ragas_scores,
             "judge": judge_result,
             # token tracking
-            "in_tokens": response["metadata"].get("prompt_tokens", 0),
-            "out_tokens": response["metadata"].get("completion_tokens", 0),
+
             "total_tokens": response["metadata"].get("total_tokens", 0),
 
             # agent cost

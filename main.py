@@ -32,7 +32,6 @@ class RealEvaluator:
                 "hit_rate": hit_rate,
                 "mrr": mrr
             }
-            
         }
 
 async def run_evaluation_pipeline(version_name: str, model_name: str):
@@ -65,7 +64,7 @@ async def run_evaluation_pipeline(version_name: str, model_name: str):
         return [], {}
 
     avg_score = sum(r.get("judge", {}).get("final_score", 0) for r in results) / total
-    avg_hit_rate = sum(r.get("ragas", {}).get("retrieval", {}).get("hit_rate", 0) for r in results) / total
+    avg_hit_rate = sum(r.get("retrieval", {}).get("retrieval", {}).get("hit_rate", 0) for r in results) / total
     avg_agreement = sum(r.get("judge", {}).get("agreement_rate", 0) for r in results) / total
     
     # 5. Tính toán chi phí (Cost per Eval)

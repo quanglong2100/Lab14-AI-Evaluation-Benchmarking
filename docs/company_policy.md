@@ -8,7 +8,6 @@ Chính sách này áp dụng cho toàn bộ nhân viên chính thức và cộng
 - **Giờ nghỉ trưa**: 12:00 PM - 1:30 PM. Trong thời gian này, nhân viên không bắt buộc phải trực máy.
 - **Yêu cầu phản hồi**: Nhân viên làm việc từ xa cần đảm bảo online trên Slack và sẵn sàng phản hồi các tin nhắn quan trọng trong vòng 15 phút. Đối với các cuộc gọi khẩn cấp, yêu cầu phản hồi ngay lập tức. (ID: POL_001)
 - **Check-in/Check-out**: Nhân viên phải thực hiện điểm danh qua hệ thống HR internal vào đầu giờ sáng và cuối giờ chiều mỗi ngày.
-
 ## 3. Thiết bị, Phần mềm và Bảo mật thông tin
 - **Cấp phát thiết bị**: Nhân viên thuộc bộ phận Engineering sẽ được cấp MacBook Pro M3. Các bộ phận khác (Marketing, HR, Admin) sẽ được cấp MacBook Air M2 hoặc Dell XPS tùy theo tính chất công việc.
 - **Bảo trì**: Nhân viên có trách nhiệm bảo quản thiết bị. Mọi hư hỏng do lỗi cá nhân sẽ phải bồi thường theo giá trị khấu hao của thiết bị. (ID: POL_002)
