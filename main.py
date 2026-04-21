@@ -2,85 +2,148 @@ import asyncio
 import json
 import os
 import time
-from engine.runner import BenchmarkRunner
+from typing import List, Dict
+
+# Import các module thực tế từ các thành viên khác
 from agent.main_agent import MainAgent
+from engine.retrieval_eval import RetrievalEvaluator
+from engine.llm_judge import LLMJudge
+from engine.runner import BenchmarkRunner
 
-# Giả lập các components Expert
-class ExpertEvaluator:
-    async def score(self, case, resp): 
-        # Giả lập tính toán Hit Rate và MRR
+# Wrapper để kết nối RetrievalEvaluator thật vào BenchmarkRunner
+class RealEvaluator:
+    def __init__(self):
+        self.retrieval_engine = RetrievalEvaluator(top_k=3)
+
+    async def score(self, test_case: Dict, agent_response: Dict):
+        """Tính toán Hit Rate và MRR dựa trên dữ liệu thật từ Agent"""
+        expected_ids = test_case.get("expected_retrieval_ids", [])
+        retrieved_ids = agent_response.get("retrieved_ids", [])
+        
+        hit_rate = self.retrieval_engine.calculate_hit_rate(expected_ids, retrieved_ids)
+        mrr = self.retrieval_engine.calculate_mrr(expected_ids, retrieved_ids)
+        
         return {
-            "faithfulness": 0.9, 
-            "relevancy": 0.8,
-            "retrieval": {"hit_rate": 1.0, "mrr": 0.5}
+            "retrieval": {
+                "hit_rate": hit_rate,
+                "mrr": mrr
+            },
+            "faithfulness": 0.0, # Sẽ được Judge cập nhật sau hoặc để Ragas xử lý
+            "relevancy": 0.0
         }
 
-class MultiModelJudge:
-    async def evaluate_multi_judge(self, q, a, gt): 
-        return {
-            "final_score": 4.5, 
-            "agreement_rate": 0.8,
-            "reasoning": "Cả 2 model đồng ý đây là câu trả lời tốt."
-        }
+async def run_evaluation_pipeline(version_name: str, model_name: str):
+    """Pipeline chạy benchmark chi tiết cho một phiên bản Agent"""
+    print(f"\n🚀 Đang khởi động Benchmark: {version_name} ({model_name})")
+    
+    # 1. Khởi tạo các thành phần thực tế
+    agent = MainAgent()
+    agent.model_name = model_name # Gán model để giả lập V1 vs V2
+    
+    evaluator = RealEvaluator()
+    judge = LLMJudge()
+    runner = BenchmarkRunner(agent, evaluator, judge)
 
-async def run_benchmark_with_results(agent_version: str):
-    print(f"🚀 Khởi động Benchmark cho {agent_version}...")
+    # 2. Load Golden Dataset
+    data_path = "data/golden_set.jsonl"
+    if not os.path.exists(data_path):
+        raise FileNotFoundError(f"Thiếu file {data_path}. Hãy chạy SDG trước!")
 
-    if not os.path.exists("data/golden_set.jsonl"):
-        print("❌ Thiếu data/golden_set.jsonl. Hãy chạy 'python data/synthetic_gen.py' trước.")
-        return None, None
-
-    with open("data/golden_set.jsonl", "r", encoding="utf-8") as f:
+    with open(data_path, "r", encoding="utf-8") as f:
         dataset = [json.loads(line) for line in f if line.strip()]
 
-    if not dataset:
-        print("❌ File data/golden_set.jsonl rỗng. Hãy tạo ít nhất 1 test case.")
-        return None, None
+    # 3. Chạy Benchmark (Async)
+    results = await runner.run_all(dataset, batch_size=5)
 
-    runner = BenchmarkRunner(MainAgent(), ExpertEvaluator(), MultiModelJudge())
-    results = await runner.run_all(dataset)
-
+    # 4. Tính toán Metrics tổng hợp
     total = len(results)
+    avg_score = sum(r["judge"]["final_score"] for r in results) / total
+    avg_hit_rate = sum(r["ragas"]["retrieval"]["hit_rate"] for r in results) / total
+    avg_agreement = sum(r["judge"]["agreement_rate"] for r in results) / total
+    
+    # 5. Tính toán chi phí (Cost per Eval)
+    # Lấy cost từ Agent (RAG) + ước tính cost từ Judge (thường Judge tốn gấp đôi Agent)
+    total_agent_cost = sum(r.get("agent_cost", 0) for r in results) 
+    # Giả lập cost của Judge dựa trên model (khoảng 0.005$ mỗi case cho Multi-judge)
+    estimated_judge_cost = total * 0.005 
+    
+    total_cost = total_agent_cost + estimated_judge_cost
+    cost_per_eval = total_cost / total
+
     summary = {
-        "metadata": {"version": agent_version, "total": total, "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")},
+        "metadata": {
+            "version": version_name,
+            "model": model_name,
+            "total": total,
+            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
+        },
         "metrics": {
-            "avg_score": sum(r["judge"]["final_score"] for r in results) / total,
-            "hit_rate": sum(r["ragas"]["retrieval"]["hit_rate"] for r in results) / total,
-            "agreement_rate": sum(r["judge"]["agreement_rate"] for r in results) / total
+            "avg_score": round(avg_score, 2),
+            "hit_rate": round(avg_hit_rate, 2),
+            "agreement_rate": round(avg_agreement, 2),
+            "cost_per_eval": round(cost_per_eval, 5),
+            "total_cost_usd": round(total_cost, 4)
         }
     }
+    
     return results, summary
 
-async def run_benchmark(version):
-    _, summary = await run_benchmark_with_results(version)
-    return summary
-
 async def main():
-    v1_summary = await run_benchmark("Agent_V1_Base")
+    print("=== AI EVALUATION FACTORY: REGRESSION MODE ===")
     
-    # Giả lập V2 có cải tiến (để test logic)
-    v2_results, v2_summary = await run_benchmark_with_results("Agent_V2_Optimized")
+    # BƯỚC 1: Chạy Benchmark cho V1 (Base - dùng model rẻ gpt-4o-mini)
+    v1_results, v1_summary = await run_evaluation_pipeline("Agent_V1_Base", "gpt-4o-mini")
     
-    if not v1_summary or not v2_summary:
-        print("❌ Không thể chạy Benchmark. Kiểm tra lại data/golden_set.jsonl.")
-        return
+    # BƯỚC 2: Chạy Benchmark cho V2 (Optimized - dùng gpt-4o hoặc prompt mới)
+    # Ở đây ta giả lập V2 bằng cách chạy lại (trong thực tế bạn có thể thay đổi Agent logic)
+    v2_results, v2_summary = await run_evaluation_pipeline("Agent_V2_Optimized", "gpt-4o-mini")
+    
+    # BƯỚC 3: So sánh kết quả (Regression Analysis)
+    score_v1 = v1_summary["metrics"]["avg_score"]
+    score_v2 = v2_summary["metrics"]["avg_score"]
+    hit_v1 = v1_summary["metrics"]["hit_rate"]
+    hit_v2 = v2_summary["metrics"]["hit_rate"]
+    
+    delta_score = score_v2 - score_v1
+    delta_hit = hit_v2 - hit_v1
 
-    print("\n📊 --- KẾT QUẢ SO SÁNH (REGRESSION) ---")
-    delta = v2_summary["metrics"]["avg_score"] - v1_summary["metrics"]["avg_score"]
-    print(f"V1 Score: {v1_summary['metrics']['avg_score']}")
-    print(f"V2 Score: {v2_summary['metrics']['avg_score']}")
-    print(f"Delta: {'+' if delta >= 0 else ''}{delta:.2f}")
+    print("\n" + "="*50)
+    print("📊 KẾT QUẢ SO SÁNH (V1 vs V2)")
+    print("-" * 50)
+    print(f"V1: Score {score_v1:.2f} | Hit Rate {hit_v1*100}%")
+    print(f"V2: Score {score_v2:.2f} | Hit Rate {hit_v2*100}%")
+    print(f"Delta: Score ({delta_score:+.2f}) | Hit Rate ({delta_hit:+.2f})")
+    print(f"Cost per Eval (V2): ${v2_summary['metrics']['cost_per_eval']}")
+    print("="*50)
 
+    # BƯỚC 4: Logic Release Gate (Auto-Gate)
+    # Điều kiện: Score không giảm VÀ Hit Rate không giảm
+    is_approved = delta_score >= 0 and delta_hit >= 0
+    
+    if is_approved:
+        decision = "✅ APPROVE: Bản cập nhật vượt qua bài kiểm tra chất lượng."
+    else:
+        decision = "❌ REJECT: Bản cập nhật bị lỗi hồi quy (Regression detected)."
+    
+    print(f"\n🚀 QUYẾT ĐỊNH CUỐI CÙNG: {decision}\n")
+
+    # BƯỚC 5: Xuất báo cáo đúng chuẩn check_lab.py
     os.makedirs("reports", exist_ok=True)
+    
+    # Luôn lưu kết quả mới nhất (V2) vào file summary để chấm điểm
     with open("reports/summary.json", "w", encoding="utf-8") as f:
         json.dump(v2_summary, f, ensure_ascii=False, indent=2)
+        
     with open("reports/benchmark_results.json", "w", encoding="utf-8") as f:
-        json.dump(v2_results, f, ensure_ascii=False, indent=2)
+        # Ghi kết quả chi tiết kèm theo quyết định release
+        output_data = {
+            "decision": decision,
+            "regression_details": {"delta_score": delta_score, "delta_hit": delta_hit},
+            "cases": v2_results
+        }
+        json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    if delta > 0:
-        print("✅ QUYẾT ĐỊNH: CHẤP NHẬN BẢN CẬP NHẬT (APPROVE)")
-    else:
-        print("❌ QUYẾT ĐỊNH: TỪ CHỐI (BLOCK RELEASE)")
+    print("✅ Đã ghi báo cáo vào thư mục /reports. Sẵn sàng chạy check_lab.py!")
 
 if __name__ == "__main__":
     asyncio.run(main())
