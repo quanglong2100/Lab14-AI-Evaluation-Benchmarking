@@ -35,7 +35,11 @@ class MainAgent:
         # LLM setup
         api_key = os.getenv("OPENAI_API_KEY", "").strip()
         self.use_llm = bool(api_key)
-        self.client = AsyncOpenAI(api_key=api_key) if self.use_llm else None
+        self.client = AsyncOpenAI(
+            api_key=api_key,
+            timeout=60.0,
+            max_retries=3
+        ) if self.use_llm else None
 
     # --------------------------
     # LOAD DATA

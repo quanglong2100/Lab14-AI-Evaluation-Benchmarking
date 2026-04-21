@@ -3,6 +3,10 @@ import json
 import os
 import time
 from typing import List, Dict
+from dotenv import load_dotenv
+
+# Nạp biến môi trường từ file .env
+load_dotenv()
 
 # Import các module thực tế từ các thành viên khác
 from agent.main_agent import MainAgent
@@ -52,14 +56,18 @@ async def run_evaluation_pipeline(version_name: str, model_name: str):
     with open(data_path, "r", encoding="utf-8") as f:
         dataset = [json.loads(line) for line in f if line.strip()]
 
-    # 3. Chạy Benchmark (Async)
-    results = await runner.run_all(dataset, batch_size=5)
+    # 3. Chạy Benchmark (Async) với batch_size=1 để tránh lỗi kết nối
+    results = await runner.run_all(dataset, batch_size=1)
 
     # 4. Tính toán Metrics tổng hợp
     total = len(results)
-    avg_score = sum(r["judge"]["final_score"] for r in results) / total
-    avg_hit_rate = sum(r["ragas"]["retrieval"]["hit_rate"] for r in results) / total
-    avg_agreement = sum(r["judge"]["agreement_rate"] for r in results) / total
+    if total == 0:
+        print("⚠️ Warning: No valid results to aggregate.")
+        return [], {}
+
+    avg_score = sum(r.get("judge", {}).get("final_score", 0) for r in results) / total
+    avg_hit_rate = sum(r.get("ragas", {}).get("retrieval", {}).get("hit_rate", 0) for r in results) / total
+    avg_agreement = sum(r.get("judge", {}).get("agreement_rate", 0) for r in results) / total
     
     # 5. Tính toán chi phí (Cost per Eval)
     # Lấy cost từ Agent (RAG) + ước tính cost từ Judge (thường Judge tốn gấp đôi Agent)

@@ -52,5 +52,10 @@ class BenchmarkRunner:
             batch = dataset[i:i + batch_size]
             tasks = [self.run_single_test(case) for case in batch]
             batch_results = await asyncio.gather(*tasks, return_exceptions=True)
-            results.extend(batch_results)
+            
+            for res in batch_results:
+                if isinstance(res, Exception):
+                    print(f"❌ Critical Task Error: {res}")
+                else:
+                    results.append(res)
         return results
