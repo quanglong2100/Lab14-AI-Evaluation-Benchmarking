@@ -1,4 +1,5 @@
 import asyncio
+import json
 import os
 import re
 import time
@@ -11,6 +12,17 @@ from openai import AsyncOpenAI
 class MainAgent:
     """RAG agent for company policy, product catalog, and technical guide domain."""
 
+    ROOT_CHUNK_IDS = {
+        "company_policy.md": "COMPANY_POLICY_000",
+        "product_catalog.md": "PRODUCT_CATALOG_000",
+        "technical_guide.md": "TECHNICAL_GUIDE_000",
+    }
+    CANONICAL_PREFIX_BY_SOURCE = {
+        "company_policy.md": "COMPANY_POLICY",
+        "product_catalog.md": "PRODUCT_CATALOG",
+        "technical_guide.md": "TECHNICAL_GUIDE",
+    }
+
     MODEL_PRICING = {
         "gpt-4o-mini": {"input": 0.15, "output": 0.60},
         "gpt-4o": {"input": 5.00, "output": 15.00},
@@ -19,6 +31,7 @@ class MainAgent:
         self.name = "AIGlobalSupportAgent-v3"
         self.model_name = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
         self.top_k = 3
+        self.chunk_aliases: Dict[str, str] = {}
         self.kb, self.id_to_source = self._load_domain_docs()
         self.doc_tokens: Dict[str, set] = {
             doc_id: set(self._tokenize(text)) for doc_id, text in self.kb.items()
@@ -27,6 +40,54 @@ class MainAgent:
         api_key = os.getenv("OPENAI_API_KEY", "").strip()
         self.use_llm = bool(api_key)
         self.client = AsyncOpenAI(api_key=api_key) if self.use_llm else None
+
+    @staticmethod
+    def _extract_root_chunk(content: str) -> str:
+        lines = [ln.strip() for ln in content.splitlines() if ln.strip()]
+        if not lines:
+            return ""
+
+        # Keep title and a short lead-in sentence for high-level retrieval questions.
+        title = lines[0]
+        lead_lines: List[str] = []
+        for ln in lines[1:]:
+            if ln.startswith("## "):
+                break
+            lead_lines.append(ln)
+
+        root_lines = [title]
+        if lead_lines:
+            root_lines.extend(lead_lines[:2])
+        return "\n".join(root_lines).strip()
+
+    def _save_chunks_to_file(self, chunks: Dict[str, str], sources: Dict[str, str]) -> None:
+        root = Path(__file__).resolve().parents[1]
+        out_path = root / "data" / "chunks.jsonl"
+
+        records = []
+        for chunk_id in sorted(chunks.keys()):
+            records.append(
+                {
+                    "chunk_id": chunk_id,
+                    "source": sources.get(chunk_id, "unknown"),
+                    "text": chunks.get(chunk_id, ""),
+                }
+            )
+
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        with out_path.open("w", encoding="utf-8") as f:
+            for rec in records:
+                f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+
+    def _next_canonical_chunk_id(self, source_file: str, next_index_by_file: Dict[str, int]) -> str:
+        prefix = self.CANONICAL_PREFIX_BY_SOURCE.get(source_file)
+        if not prefix:
+            return f"UNKNOWN_{next_index_by_file.get(source_file, 0):03d}"
+
+        next_index = next_index_by_file.get(source_file, 1)
+        canonical_id = f"{prefix}_{next_index:03d}"
+        next_index_by_file[source_file] = next_index + 1
+        return canonical_id
 
     def _load_domain_docs(self) -> Tuple[Dict[str, str], Dict[str, str]]:
         root = Path(__file__).resolve().parents[1]
@@ -39,6 +100,8 @@ class MainAgent:
 
         id_to_text: Dict[str, str] = {}
         id_to_source: Dict[str, str] = {}
+        legacy_to_canonical_by_file: Dict[str, Dict[str, str]] = {}
+        next_index_by_file: Dict[str, int] = {}
         id_pattern = re.compile(r"\(ID:\s*([A-Z]+_\d+)\)")
 
         for filename in files:
@@ -46,6 +109,18 @@ class MainAgent:
             if not path.exists():
                 continue
             content = path.read_text(encoding="utf-8")
+
+            root_chunk_id = self.ROOT_CHUNK_IDS.get(filename)
+            if root_chunk_id:
+                root_chunk = self._extract_root_chunk(content)
+                if root_chunk:
+                    id_to_text[root_chunk_id] = root_chunk
+                    id_to_source[root_chunk_id] = filename
+                    self.chunk_aliases[root_chunk_id] = root_chunk_id
+                    next_index_by_file[filename] = 1
+
+            if filename not in legacy_to_canonical_by_file:
+                legacy_to_canonical_by_file[filename] = {}
 
             lines = content.splitlines()
             sections: List[str] = []
@@ -76,27 +151,53 @@ class MainAgent:
                         start = max(0, hit_index - 4)
                         end = min(len(section_lines), hit_index + 2)
                         snippet_lines = section_lines[start:end]
-                        if section_lines and section_lines[0].startswith("##"):
+                        if section_lines and section_lines[0].startswith("##") and (not snippet_lines or snippet_lines[0] != section_lines[0]):
                             snippet_lines = [section_lines[0]] + snippet_lines
                         snippet = "\n".join(snippet_lines)
                     else:
                         snippet = re.sub(r"\n{2,}", "\n", section).strip()
 
-                    id_to_text[found_id] = snippet
-                    id_to_source[found_id] = filename
+                    file_alias_map = legacy_to_canonical_by_file[filename]
+                    canonical_id = file_alias_map.get(found_id)
+                    if canonical_id is None:
+                        canonical_id = self._next_canonical_chunk_id(filename, next_index_by_file)
+                        file_alias_map[found_id] = canonical_id
+                    id_to_text[canonical_id] = snippet
+                    id_to_source[canonical_id] = filename
+                    self.chunk_aliases[found_id] = canonical_id
+                    self.chunk_aliases[canonical_id] = canonical_id
 
         # Fallback entries keep agent functional even if IDs were not parsed.
         if not id_to_text:
             id_to_text = {
-                "POL_001": "Nhan vien remote can online Slack va phan hoi tin nhan quan trong trong 15 phut.",
-                "PROD_002": "Goi Pro gia 99$/thang, 10,000 requests/ngay, dung GPT-4o-mini va text-embedding-3-small.",
-                "TECH_003": "Chunk size 512 tokens, overlap 10%, dung RecursiveCharacterTextSplitter.",
+                "COMPANY_POLICY_000": "Quy dinh Lam viec tu xa (Remote Work Policy) - Cong ty AI Global",
+                "PRODUCT_CATALOG_000": "Danh muc San pham va Dich vu: AI Suite 2024",
+                "TECHNICAL_GUIDE_000": "Huong dan Ky thuat: He thong RAG Pipeline (v2.1)",
+                "COMPANY_POLICY_002": "Nhan vien remote can online Slack va phan hoi tin nhan quan trong trong 15 phut.",
+                "PRODUCT_CATALOG_003": "Goi Pro gia 99$/thang, 10,000 requests/ngay, dung GPT-4o-mini va text-embedding-3-small.",
+                "TECHNICAL_GUIDE_004": "Chunk size 512 tokens, overlap 10%, dung RecursiveCharacterTextSplitter.",
             }
             id_to_source = {
-                "POL_001": "company_policy.md",
-                "PROD_002": "product_catalog.md",
-                "TECH_003": "technical_guide.md",
+                "COMPANY_POLICY_000": "company_policy.md",
+                "PRODUCT_CATALOG_000": "product_catalog.md",
+                "TECHNICAL_GUIDE_000": "technical_guide.md",
+                "COMPANY_POLICY_002": "company_policy.md",
+                "PRODUCT_CATALOG_003": "product_catalog.md",
+                "TECHNICAL_GUIDE_004": "technical_guide.md",
             }
+            self.chunk_aliases = {
+                "COMPANY_POLICY_000": "COMPANY_POLICY_000",
+                "PRODUCT_CATALOG_000": "PRODUCT_CATALOG_000",
+                "TECHNICAL_GUIDE_000": "TECHNICAL_GUIDE_000",
+                "POL_001": "COMPANY_POLICY_002",
+                "PROD_002": "PRODUCT_CATALOG_003",
+                "TECH_003": "TECHNICAL_GUIDE_004",
+                "COMPANY_POLICY_002": "COMPANY_POLICY_002",
+                "PRODUCT_CATALOG_003": "PRODUCT_CATALOG_003",
+                "TECHNICAL_GUIDE_004": "TECHNICAL_GUIDE_004",
+            }
+
+        self._save_chunks_to_file(id_to_text, id_to_source)
 
         return id_to_text, id_to_source
 
@@ -123,7 +224,11 @@ class MainAgent:
 
     def _retrieve(self, question: str, top_k: int) -> Tuple[List[str], List[str]]:
         q_tokens = set(self._tokenize(question))
-        explicit_ids = [doc_id for doc_id in re.findall(r"[A-Z]+_\d+", question.upper()) if doc_id in self.kb]
+        explicit_ids = []
+        for raw_id in re.findall(r"[A-Z_]+_\d+", question.upper()):
+            resolved_id = self.chunk_aliases.get(raw_id, raw_id)
+            if resolved_id in self.kb and resolved_id not in explicit_ids:
+                explicit_ids.append(resolved_id)
 
         # 1) Ưu tiên ID được nhắc trực tiếp trong câu hỏi.
         best: List[str] = []
