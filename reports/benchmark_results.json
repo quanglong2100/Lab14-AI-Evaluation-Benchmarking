@@ -1,0 +1,1859 @@
+{
+  "decision": "✅ APPROVE: Bản cập nhật vượt qua bài kiểm tra chất lượng.",
+  "regression_details": {
+    "delta_score": 0.3200000000000003,
+    "delta_hit": 0.0
+  },
+  "cases": [
+    {
+      "test_case": "Công ty nào ban hành Quy định Làm việc từ xa?",
+      "agent_response": "Công ty AI Global ban hành Quy định Làm việc từ xa.",
+      "latency": 0.8694609499998478,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin được cung cấp trong Ground Truth. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và dựa trên thông tin đã cung cấp, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 142,
+      "agent_cost": 0.00086,
+      "status": "pass"
+    },
+    {
+      "test_case": "Quy định Làm việc từ xa thuộc về lĩnh vực nào?",
+      "agent_response": "Theo tài liệu: # Quy định Làm việc từ xa (Remote Work Policy) - Công ty AI Global",
+      "latency": 3.4255646810015605,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 3.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có ý đúng khi đề cập đến 'Công ty AI Global', nhưng không nêu rõ rằng quy định thuộc về lĩnh vực công ty. Câu trả lời không hoàn toàn dựa trên context được cung cấp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 3,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có thông tin đúng nhưng thiếu chi tiết quan trọng về lĩnh vực cụ thể mà quy định thuộc về."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 3.0,
+          "avg_faithfulness": 4.0
+        }
+      },
+      "total_tokens": 37,
+      "agent_cost": 0.000415,
+      "status": "pass"
+    },
+    {
+      "test_case": "Khi nào Quy định Làm việc từ xa được áp dụng?",
+      "agent_response": "Theo tài liệu: # Quy định Làm việc từ xa (Remote Work Policy) - Công ty AI Global",
+      "latency": 3.6326001819998055,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 3.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có ý đúng là Quy định Làm việc từ xa áp dụng khi nhân viên làm việc từ xa, nhưng thiếu chi tiết cụ thể từ tài liệu. Câu trả lời không hoàn toàn dựa trên context được cung cấp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 3,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có thông tin đúng nhưng thiếu chi tiết quan trọng về điều kiện áp dụng cụ thể của quy định."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 3.0,
+          "avg_faithfulness": 4.0
+        }
+      },
+      "total_tokens": 37,
+      "agent_cost": 0.000415,
+      "status": "pass"
+    },
+    {
+      "test_case": "Chính sách này áp dụng cho những ai?",
+      "agent_response": "Chính sách này áp dụng cho toàn bộ nhân viên chính thức và cộng tác viên (contractors) đang làm việc tại AI Global.",
+      "latency": 1.119188247999773,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin trong Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 241,
+      "agent_cost": 0.001485,
+      "status": "pass"
+    },
+    {
+      "test_case": "Mục tiêu của chính sách là gì?",
+      "agent_response": "Mục tiêu của chính sách là đảm bảo hiệu suất công việc không bị gián đoạn trong khi vẫn duy trì sự cân bằng giữa công việc và cuộc sống.",
+      "latency": 1.2794264849999308,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn khớp với Ground Truth, thông tin chính xác và được diễn đạt một cách chuyên nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin trong Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 249,
+      "agent_cost": 0.001575,
+      "status": "pass"
+    },
+    {
+      "test_case": "Tại sao chính sách này lại quan trọng đối với nhân viên tại AI Global?",
+      "agent_response": "Chính sách này quan trọng đối với nhân viên tại AI Global vì nó giúp duy trì hiệu suất công việc mà không làm gián đoạn sự cân bằng giữa công việc và cuộc sống cá nhân. Bằng cách đặt ra các yêu cầu cụ thể về phản hồi và giờ nghỉ trưa, chính sách tạo ra một môi trường làm việc linh hoạt nhưng vẫn đảm bảo sự sẵn sàng và hiệu quả trong công việc.",
+      "latency": 2.0807684360006533,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ, phản ánh đúng nội dung của Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 328,
+      "agent_cost": 0.0025,
+      "status": "pass"
+    },
+    {
+      "test_case": "Giờ làm việc chính thức của nhân viên là gì?",
+      "agent_response": "Context không cung cấp thông tin cụ thể về giờ làm việc chính thức của nhân viên.",
+      "latency": 1.040370274000452,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "judge": {
+        "final_score": 1,
+        "agreement_rate": 0.0,
+        "status": "Conflict",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và trung thực vì Context không cung cấp thông tin về giờ làm việc, và ngôn ngữ sử dụng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin từ Context, mặc dù ngôn ngữ sử dụng chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 3.0,
+          "avg_faithfulness": 3.0
+        }
+      },
+      "total_tokens": 220,
+      "agent_cost": 0.00128,
+      "status": "fail"
+    },
+    {
+      "test_case": "Nhân viên làm việc từ xa cần phản hồi tin nhắn trong thời gian bao lâu?",
+      "agent_response": "Nhân viên làm việc từ xa cần phản hồi các tin nhắn quan trọng trong vòng 15 phút và phản hồi ngay lập tức đối với các cuộc gọi khẩn cấp.",
+      "latency": 1.0404872389990487,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 3,
+        "agreement_rate": 0.5,
+        "status": "Conflict",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có ý đúng về thời gian phản hồi tin nhắn quan trọng trong vòng 15 phút, nhưng không đề cập đến việc cần đảm bảo online trên Slack. Ngoài ra, thông tin về phản hồi ngay lập tức đối với các cuộc gọi khẩn cấp không có trong Ground Truth."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ, phù hợp với thông tin trong Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 4.0,
+          "avg_faithfulness": 4.0
+        }
+      },
+      "total_tokens": 278,
+      "agent_cost": 0.00175,
+      "status": "pass"
+    },
+    {
+      "test_case": "Nhân viên cần thực hiện điểm danh vào lúc nào trong ngày?",
+      "agent_response": "Nhân viên cần thực hiện điểm danh vào đầu giờ sáng và cuối giờ chiều mỗi ngày.",
+      "latency": 0.79971024400038,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.3333333333333333
+        }
+      },
+      "judge": {
+        "final_score": 4.5,
+        "agreement_rate": 0.75,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, chỉ thiếu chi tiết về hệ thống HR internal nhưng không ảnh hưởng đến độ chính xác tổng thể. Ngôn ngữ sử dụng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 4,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời gần đúng nhưng thiếu thông tin về việc điểm danh qua hệ thống HR internal."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 4.5,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 255,
+      "agent_cost": 0.001465,
+      "status": "pass"
+    },
+    {
+      "test_case": "Nhân viên thuộc bộ phận nào sẽ được cấp MacBook Pro M3?",
+      "agent_response": "Nhân viên thuộc bộ phận Engineering sẽ được cấp MacBook Pro M3.",
+      "latency": 0.723086770000009,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin được cung cấp trong Ground Truth. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin đã cung cấp, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 234,
+      "agent_cost": 0.00134,
+      "status": "pass"
+    },
+    {
+      "test_case": "Khi nào nhân viên cần sử dụng VPN của công ty?",
+      "agent_response": "Theo tài liệu: ## 1. Tổng quan và Phạm vi áp dụng\nChính sách này áp dụng cho toàn bộ nhân viên chính thức và cộng tác viên (contractors) đang làm việc tại AI Global. Mục tiêu của chính sách là đảm bảo hiệu suất công",
+      "latency": 3.716321543999584,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 1,
+        "agreement_rate": 0.5,
+        "status": "Conflict",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 3,
+            "reasoning": "Câu trả lời không đề cập đến việc sử dụng VPN khi truy cập vào hệ thống AWS, Google Cloud và database nội bộ như Ground Truth. Thông tin không chính xác và không dựa trên Context được cung cấp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có thông tin liên quan đến chính sách sử dụng VPN nhưng không đề cập đến các trường hợp cụ thể mà nhân viên cần sử dụng VPN như trong Ground Truth."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 2.0,
+          "avg_faithfulness": 2.0
+        }
+      },
+      "total_tokens": 73,
+      "agent_cost": 0.000955,
+      "status": "fail"
+    },
+    {
+      "test_case": "Ai sẽ phải bồi thường nếu thiết bị bị hư hỏng do lỗi cá nhân?",
+      "agent_response": "Theo tài liệu: - **Bảo trì**: Nhân viên có trách nhiệm bảo quản thiết bị. Mọi hư hỏng do lỗi cá nhân sẽ phải bồi thường theo giá trị khấu hao của thiết bị. (ID: POL_002)",
+      "latency": 3.812681658000656,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, đồng thời sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và dựa trên thông tin đã cung cấp, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 65,
+      "agent_cost": 0.000785,
+      "status": "pass"
+    },
+    {
+      "test_case": "Ai sẽ được cấp MacBook Pro M3?",
+      "agent_response": "Theo tài liệu: - **Cấp phát thiết bị**: Nhân viên thuộc bộ phận Engineering sẽ được cấp MacBook Pro M3. Các bộ phận khác (Marketing, HR, Admin) sẽ được cấp MacBook Air M2 hoặc Dell XPS tùy theo tính chất công việc.",
+      "latency": 3.39557920200059,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, đồng thời sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và dựa trên thông tin đã cung cấp, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 63,
+      "agent_cost": 0.000855,
+      "status": "pass"
+    },
+    {
+      "test_case": "Mật khẩu cần có bao nhiêu ký tự và những yếu tố nào phải được bao gồm?",
+      "agent_response": "Mật khẩu cần có ít nhất 12 ký tự và phải bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.",
+      "latency": 2.2423756630014395,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin trong Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 265,
+      "agent_cost": 0.001605,
+      "status": "pass"
+    },
+    {
+      "test_case": "Khi nào nhân viên cần thay đổi mật khẩu?",
+      "agent_response": "Nhân viên cần thay đổi mật khẩu định kỳ 90 ngày một lần.",
+      "latency": 0.7208045389998006,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin trong Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 274,
+      "agent_cost": 0.00153,
+      "status": "pass"
+    },
+    {
+      "test_case": "Daily Stand-up diễn ra vào thời gian nào và ở đâu?",
+      "agent_response": "Daily Stand-up diễn ra vào 9:00 AM hàng ngày qua Google Meet.",
+      "latency": 1.2013681809985428,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin được cung cấp trong Ground Truth. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin đã cho, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 175,
+      "agent_cost": 0.001045,
+      "status": "pass"
+    },
+    {
+      "test_case": "Mỗi người có bao nhiêu thời gian để báo cáo trong Daily Stand-up?",
+      "agent_response": "Mỗi người có 2 phút để báo cáo trong Daily Stand-up.",
+      "latency": 0.7875696029987012,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.3333333333333333
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin, phù hợp với ngữ cảnh và sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 226,
+      "agent_cost": 0.00128,
+      "status": "pass"
+    },
+    {
+      "test_case": "Khi nào cần gửi báo cáo công việc hàng tuần và cho ai?",
+      "agent_response": "Báo cáo công việc hàng tuần cần được gửi qua email cho Lead trực tiếp trước 5:00 PM Thứ Sáu hàng tuần.",
+      "latency": 0.9556157119986892,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực so với Ground Truth, không có sai sót nào. Ngôn ngữ sử dụng cũng rất phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin trong Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 281,
+      "agent_cost": 0.001705,
+      "status": "pass"
+    },
+    {
+      "test_case": "Công ty hỗ trợ bao nhiêu tiền cước internet cho nhân viên làm việc remote toàn thời gian?",
+      "agent_response": "Công ty hỗ trợ 500,000 VNĐ/tháng tiền cước internet cho nhân viên làm việc remote toàn thời gian.",
+      "latency": 0.8795253930002218,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin được cung cấp trong Ground Truth. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin đã cung cấp, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 259,
+      "agent_cost": 0.001565,
+      "status": "pass"
+    },
+    {
+      "test_case": "Nhân viên có thể yêu cầu hỗ trợ mua ghế công thái học với mức tối đa là bao nhiêu?",
+      "agent_response": "Nhân viên có thể yêu cầu công ty hỗ trợ mua ghế công thái học với mức hỗ trợ tối đa là 3,000,000 VNĐ.",
+      "latency": 0.8802613139996538,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin được cung cấp trong Ground Truth. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin đã cung cấp, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 300,
+      "agent_cost": 0.00183,
+      "status": "pass"
+    },
+    {
+      "test_case": "Tại sao công ty lại cung cấp trợ cấp cho nhân viên làm việc tại nhà?",
+      "agent_response": "Công ty cung cấp trợ cấp cho nhân viên làm việc tại nhà để đảm bảo hiệu suất công việc không bị gián đoạn và duy trì sự cân bằng giữa công việc và cuộc sống. Trợ cấp Internet giúp nhân viên có kết nối ổn định để thực hiện công việc từ xa một cách hiệu quả.",
+      "latency": 1.352871609999056,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 3.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có ý đúng về việc cung cấp trợ cấp để hỗ trợ làm việc từ xa, nhưng thiếu chi tiết cụ thể về việc hỗ trợ nhân viên làm việc remote toàn thời gian như trong Ground Truth. Câu trả lời cũng không hoàn toàn dựa trên Context được cung cấp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 3,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có ý đúng nhưng thiếu chi tiết quan trọng về việc trợ cấp được cung cấp cho nhân viên làm việc remote toàn thời gian."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 3.0,
+          "avg_faithfulness": 4.0
+        }
+      },
+      "total_tokens": 293,
+      "agent_cost": 0.002105,
+      "status": "pass"
+    },
+    {
+      "test_case": "Danh mục sản phẩm và dịch vụ nào được đề cập trong tài liệu?",
+      "agent_response": "Danh mục sản phẩm và dịch vụ được đề cập trong tài liệu là \"AI Suite 2024\".",
+      "latency": 0.9595131910009513,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin trong tài liệu, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 196,
+      "agent_cost": 0.00119,
+      "status": "pass"
+    },
+    {
+      "test_case": "AI Suite 2024 là gì?",
+      "agent_response": "AI Suite 2024 là một danh mục sản phẩm và dịch vụ được đề cập trong chính sách của AI Global. Tuy nhiên, thông tin chi tiết về AI Suite 2024 không được cung cấp trong context này.",
+      "latency": 0.8372451799987175,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin được cung cấp trong Ground Truth và Context. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và phù hợp với thông tin trong Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 212,
+      "agent_cost": 0.00151,
+      "status": "pass"
+    },
+    {
+      "test_case": "Tại sao cần có danh mục sản phẩm và dịch vụ AI Suite 2024?",
+      "agent_response": "Không có thông tin trong context về lý do cụ thể tại sao cần có danh mục sản phẩm và dịch vụ AI Suite 2024. Context chỉ đề cập đến phạm vi áp dụng của chính sách liên quan đến danh mục này.",
+      "latency": 1.2784412309993058,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, không có thông tin nào bị bịa đặt. Ngôn ngữ sử dụng cũng rất phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và trung thực, phản ánh đúng thông tin từ Ground Truth mà không thêm bớt hay tự bịa ra."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 224,
+      "agent_cost": 0.00159,
+      "status": "pass"
+    },
+    {
+      "test_case": "Gói Basic dành cho đối tượng nào?",
+      "agent_response": "Gói Basic dành cho startup nhỏ.",
+      "latency": 0.5512463089999073,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn khớp với Ground Truth và sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin gốc, sử dụng ngôn ngữ phù hợp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 105,
+      "agent_cost": 0.000605,
+      "status": "pass"
+    },
+    {
+      "test_case": "Gói Basic sử dụng mô hình nào?",
+      "agent_response": "Không biết. Context không cung cấp thông tin về mô hình được sử dụng trong gói Basic.",
+      "latency": 0.7964876459991501,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin từ Ground Truth, vì Ground Truth đã cung cấp thông tin rằng gói Basic sử dụng mô hình GPT-3.5 Turbo."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời sai lệch hoàn toàn so với thông tin đúng, không dựa trên context và ngôn ngữ vẫn giữ được sự chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 1.0,
+          "avg_faithfulness": 1.0
+        }
+      },
+      "total_tokens": 183,
+      "agent_cost": 0.001115,
+      "status": "fail"
+    },
+    {
+      "test_case": "Thời gian phản hồi trung bình của gói Basic là bao nhiêu?",
+      "agent_response": "Không biết.",
+      "latency": 2.1935087199999543,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 3,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin từ Ground Truth. Ngôn ngữ sử dụng không phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin đã cung cấp, mặc dù ngôn ngữ sử dụng có thể được coi là chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 1.0,
+          "avg_faithfulness": 1.0
+        }
+      },
+      "total_tokens": 221,
+      "agent_cost": 0.001135,
+      "status": "fail"
+    },
+    {
+      "test_case": "Gói Pro dành cho đối tượng nào?",
+      "agent_response": "Gói Pro dành cho doanh nghiệp vừa.",
+      "latency": 0.637386845999572,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.3333333333333333
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với ngữ cảnh, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 106,
+      "agent_cost": 0.00062,
+      "status": "pass"
+    },
+    {
+      "test_case": "Gói Pro có những tính năng gì nổi bật?",
+      "agent_response": "Không biết. Context không cung cấp thông tin chi tiết về các tính năng nổi bật của gói Pro.",
+      "latency": 0.8000347479992342,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 3,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin từ Ground Truth. Ngôn ngữ sử dụng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 3,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về gói Pro và không dựa trên thông tin trong Context, mặc dù ngôn ngữ có phần lịch sự."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 1.0,
+          "avg_faithfulness": 1.0
+        }
+      },
+      "total_tokens": 107,
+      "agent_cost": 0.000755,
+      "status": "fail"
+    },
+    {
+      "test_case": "Thời gian hỗ trợ ưu tiên qua Slack Channel là bao lâu?",
+      "agent_response": "Thời gian hỗ trợ ưu tiên qua Slack Channel là vòng 2 giờ làm việc.",
+      "latency": 1.2036584590005077,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin được cung cấp trong Ground Truth. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin, phù hợp với ngữ cảnh và sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 207,
+      "agent_cost": 0.001215,
+      "status": "pass"
+    },
+    {
+      "test_case": "Gói Enterprise dành cho đối tượng nào?",
+      "agent_response": "Gói Enterprise dành cho tập đoàn lớn.",
+      "latency": 0.6308443819998502,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và trung thực, phù hợp với ngữ cảnh và sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 106,
+      "agent_cost": 0.00062,
+      "status": "pass"
+    },
+    {
+      "test_case": "Gói Enterprise có cam kết SLA bao nhiêu phần trăm?",
+      "agent_response": "Gói Enterprise có cam kết SLA 99.9%.",
+      "latency": 0.641954276999968,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin được cung cấp trong Ground Truth. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và dựa trên thông tin đã cung cấp, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 201,
+      "agent_cost": 0.001125,
+      "status": "pass"
+    },
+    {
+      "test_case": "Gói Enterprise hỗ trợ kỹ thuật như thế nào?",
+      "agent_response": "Gói Enterprise hỗ trợ kỹ thuật 24/7 với Dedicated Engineer.",
+      "latency": 0.6774754620000749,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ chuyên nghiệp phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực, sử dụng ngôn ngữ chuyên nghiệp phù hợp với môi trường doanh nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 163,
+      "agent_cost": 0.000965,
+      "status": "pass"
+    },
+    {
+      "test_case": "Ai là người tổ chức buổi hướng dẫn sử dụng AI và Prompt Engineering?",
+      "agent_response": "Xin lỗi, tôi không có thông tin về người tổ chức buổi hướng dẫn sử dụng AI và Prompt Engineering từ context đã cho.",
+      "latency": 0.7993517849990894,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin từ Ground Truth. Ground Truth có thông tin về buổi hướng dẫn nhưng không đề cập đến người tổ chức."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin từ context, mặc dù ngôn ngữ sử dụng chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 1.0,
+          "avg_faithfulness": 1.0
+        }
+      },
+      "total_tokens": 230,
+      "agent_cost": 0.00142,
+      "status": "fail"
+    },
+    {
+      "test_case": "Tại sao lại cần tích hợp hệ thống legacy phức tạp?",
+      "agent_response": "Không có thông tin cụ thể trong context về lý do tại sao cần tích hợp hệ thống legacy phức tạp. Tuy nhiên, thông thường, việc tích hợp các hệ thống legacy như SAP và Oracle có thể cần thiết để:\n\n1. **Duy trì hoạt động liên tục**: Các hệ thống legacy thường chứa dữ liệu và quy trình kinh doanh quan trọng mà doanh nghiệp cần duy trì.\n\n2. **Tối ưu hóa quy trình**: Tích hợp giúp cải thiện hiệu quả hoạt động bằng cách kết nối các hệ thống khác nhau, giảm thiểu sự trùng lặp và tăng cường khả năng tự động hóa.\n\n3. **Hỗ trợ ra quyết định**: Việc tích hợp có thể giúp trích xuất và phân tích dữ liệu từ các hệ thống legacy để hỗ trợ ra quyết định kinh doanh.\n\n4. **Giảm chi phí**: Thay vì thay thế toàn bộ hệ thống legacy, tích hợp có thể là một giải pháp tiết kiệm chi phí hơn.\n\nNếu bạn cần thêm thông tin chi tiết, có thể cần tham khảo thêm từ các nguồn khác.",
+      "latency": 4.20163109799978,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 3.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không hoàn toàn chính xác so với Ground Truth vì không đề cập đến chi phí 1,500$ cho mỗi cổng tích hợp. Tuy nhiên, các lý do tích hợp hệ thống legacy được nêu ra là hợp lý và có thể áp dụng chung. Câu trả lời không hoàn toàn dựa trên Context mà có phần suy diễn. Ngôn ngữ sử dụng chuyên nghiệp và phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 3,
+            "faithfulness": 4,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời cung cấp thông tin hợp lý về lý do tích hợp hệ thống legacy, nhưng không đề cập đến chi phí cụ thể và không hoàn toàn chính xác so với Ground Truth."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 3.0,
+          "avg_faithfulness": 3.5
+        }
+      },
+      "total_tokens": 396,
+      "agent_cost": 0.00423,
+      "status": "pass"
+    },
+    {
+      "test_case": "Khi nào thì doanh nghiệp nên tham gia buổi seminar về AI?",
+      "agent_response": "Không có thông tin cụ thể trong context về thời điểm doanh nghiệp nên tham gia buổi seminar về AI. Tuy nhiên, nếu doanh nghiệp muốn nâng cao kỹ năng sử dụng AI và Prompt Engineering cho nhân viên, thì việc tham gia seminar có thể là một lựa chọn tốt.",
+      "latency": 1.5207327980006085,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 3.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có ý đúng về việc tham gia seminar để nâng cao kỹ năng AI, nhưng thiếu chi tiết quan trọng về mức phí và mục đích cụ thể như trong Ground Truth. Câu trả lời không hoàn toàn dựa trên thông tin từ context."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 4,
+            "reasoning": "Câu trả lời có ý đúng nhưng thiếu thông tin quan trọng về mức phí và thời điểm cụ thể để tham gia seminar."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 3.0,
+          "avg_faithfulness": 3.0
+        }
+      },
+      "total_tokens": 232,
+      "agent_cost": 0.00172,
+      "status": "pass"
+    },
+    {
+      "test_case": "Hệ thống RAG Pipeline phiên bản nào đang được hướng dẫn?",
+      "agent_response": "Hệ thống RAG Pipeline phiên bản 2.1 đang được hướng dẫn.",
+      "latency": 0.6442882549999922,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin từ Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin về phiên bản của hệ thống RAG Pipeline, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 171,
+      "agent_cost": 0.001025,
+      "status": "pass"
+    },
+    {
+      "test_case": "Tại sao việc hiểu hệ thống RAG Pipeline lại quan trọng?",
+      "agent_response": "Không biết.",
+      "latency": 0.7200733500012575,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.3333333333333333
+        }
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 3,
+            "reasoning": "Câu trả lời 'Không biết' không cung cấp thông tin chính xác hoặc dựa trên ngữ cảnh, và không phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin nào từ ngữ cảnh, mặc dù ngôn ngữ sử dụng có thể được coi là chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 1.0,
+          "avg_faithfulness": 1.0
+        }
+      },
+      "total_tokens": 180,
+      "agent_cost": 0.00093,
+      "status": "fail"
+    },
+    {
+      "test_case": "Hướng dẫn này thuộc loại tài liệu nào?",
+      "agent_response": "Dựa trên context được cung cấp, hướng dẫn này thuộc loại tài liệu \"Hướng dẫn Kỹ thuật\".",
+      "latency": 1.0399669480011653,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.3333333333333333
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin trong Ground Truth và Context, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và phù hợp với thông tin trong context, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 158,
+      "agent_cost": 0.00102,
+      "status": "pass"
+    },
+    {
+      "test_case": "Hệ thống RAG được thiết kế theo kiến trúc nào?",
+      "agent_response": "Hệ thống RAG được thiết kế theo kiến trúc Microservices.",
+      "latency": 0.9520573610006977,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin, phù hợp với ngữ cảnh và sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 169,
+      "agent_cost": 0.000995,
+      "status": "pass"
+    },
+    {
+      "test_case": "Ingestion Engine có chức năng gì trong hệ thống RAG?",
+      "agent_response": "Xin lỗi, tôi không có thông tin về chức năng của Ingestion Engine trong hệ thống RAG dựa trên context đã cho.",
+      "latency": 0.8744688589995349,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 1.0,
+          "mrr": 0.5
+        }
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin từ Ground Truth. Ngôn ngữ sử dụng vẫn phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời không cung cấp thông tin chính xác về chức năng của Ingestion Engine trong hệ thống RAG và không dựa trên thông tin đã cho."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 1.0,
+          "avg_faithfulness": 1.0
+        }
+      },
+      "total_tokens": 180,
+      "agent_cost": 0.00117,
+      "status": "fail"
+    },
+    {
+      "test_case": "Hiện tại, Vector Database đang sử dụng công nghệ nào cho môi trường staging và production?",
+      "agent_response": "Hiện tại, Vector Database đang sử dụng ChromaDB cho môi trường staging và Pinecone cho môi trường production.",
+      "latency": 1.0115809369999624,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin đã cung cấp, sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 244,
+      "agent_cost": 0.00146,
+      "status": "pass"
+    },
+    {
+      "test_case": "Model nào được chọn vì sự cân bằng giữa độ chính xác và chi phí?",
+      "agent_response": "Model được chọn vì sự cân bằng giữa độ chính xác và chi phí là `text-embedding-3-small`.",
+      "latency": 1.3574761350009794,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn khớp với Ground Truth, thông tin chính xác và ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin đã cho, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 229,
+      "agent_cost": 0.001375,
+      "status": "pass"
+    },
+    {
+      "test_case": "Khi nào thì sử dụng model `gpt-4o`?",
+      "agent_response": "Model `gpt-4o` nên được sử dụng cho các tác vụ phân tích phức tạp và trích xuất dữ liệu có cấu trúc từ văn bản không cấu trúc.",
+      "latency": 1.2795645000005607,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn khớp với Ground Truth, thông tin chính xác và ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và phù hợp với thông tin trong Ground Truth, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 197,
+      "agent_cost": 0.001385,
+      "status": "pass"
+    },
+    {
+      "test_case": "Cấu hình Model nào kết hợp với LangChain để quản lý trạng thái hội thoại?",
+      "agent_response": "Cấu hình Model kết hợp với LangChain để quản lý trạng thái hội thoại là LangGraph.",
+      "latency": 1.2704846219985484,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 3,
+        "agreement_rate": 0.5,
+        "status": "Conflict",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin từ Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 3,
+            "faithfulness": 3,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời có thông tin đúng nhưng thiếu chi tiết quan trọng về việc LangChain là framework và không đề cập đến việc kết hợp với LangGraph."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 4.0,
+          "avg_faithfulness": 4.0
+        }
+      },
+      "total_tokens": 220,
+      "agent_cost": 0.0013,
+      "status": "pass"
+    },
+    {
+      "test_case": "Kích thước mỗi chunk là bao nhiêu tokens?",
+      "agent_response": "Kích thước mỗi chunk là 512 tokens.",
+      "latency": 1.2791012189991307,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với thông tin Ground Truth, sử dụng ngôn ngữ phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ, phù hợp với thông tin trong Ground Truth và sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 161,
+      "agent_cost": 0.000915,
+      "status": "pass"
+    },
+    {
+      "test_case": "Tại sao cần có chunk overlap trong chiến lược chunking?",
+      "agent_response": "Chunk overlap trong chiến lược chunking được sử dụng để đảm bảo rằng ngữ cảnh không bị mất tại các điểm cắt giữa các đoạn văn bản. Bằng cách chồng lấn một phần nhỏ (ví dụ: 10% hoặc khoảng 50 tokens) giữa các đoạn, thông tin quan trọng có thể được duy trì liên tục, giúp cho việc xử lý và hiểu văn bản trở nên chính xác hơn.",
+      "latency": 1.6369616399988445,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, giải thích rõ ràng lý do cần có chunk overlap trong chiến lược chunking. Ngôn ngữ sử dụng cũng rất chuyên nghiệp và phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ, giải thích rõ ràng về lý do cần có chunk overlap trong chiến lược chunking, đồng thời sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 271,
+      "agent_cost": 0.002215,
+      "status": "pass"
+    },
+    {
+      "test_case": "Chunking sử dụng chiến lược nào để phân tách văn bản?",
+      "agent_response": "Không biết.",
+      "latency": 0.5759353800003737,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 1.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 3,
+            "reasoning": "Câu trả lời không chính xác và không dựa trên thông tin từ Ground Truth. Ngôn ngữ sử dụng không phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 1,
+            "faithfulness": 1,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn sai lệch và không dựa trên thông tin đã cung cấp, mặc dù ngôn ngữ sử dụng có thể phù hợp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 1.0,
+          "avg_faithfulness": 1.0
+        }
+      },
+      "total_tokens": 146,
+      "agent_cost": 0.00076,
+      "status": "fail"
+    },
+    {
+      "test_case": "Chunk size được quy định là bao nhiêu tokens?",
+      "agent_response": "Chunk size được quy định là 512 tokens.",
+      "latency": 0.5696380420013156,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 3,
+        "agreement_rate": 0.5,
+        "status": "Conflict",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 3,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời đúng về số lượng tokens nhưng thiếu chi tiết về số từ tiếng Việt tương đương."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ thông tin, phù hợp với ngữ cảnh và sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 4.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 177,
+      "agent_cost": 0.000985,
+      "status": "pass"
+    },
+    {
+      "test_case": "Tại sao cần có Chunk overlap và nó là bao nhiêu?",
+      "agent_response": "Chunk overlap là cần thiết để đảm bảo rằng không mất ngữ cảnh ở các điểm cắt khi xử lý dữ liệu hoặc văn bản. Trong context này, chunk overlap được đặt là 10%, tương đương khoảng 50 tokens. Điều này giúp duy trì sự liên tục và đầy đủ của thông tin khi dữ liệu được chia thành các phần nhỏ hơn để xử lý.",
+      "latency": 1.840603454000302,
+      "retrieval": {
+        "retrieval": {
+          "hit_rate": 0.0,
+          "mrr": 0.0
+        }
+      },
+      "judge": {
+        "final_score": 5.0,
+        "agreement_rate": 1.0,
+        "status": "Consensus",
+        "details": {
+          "gpt-4o": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời hoàn toàn chính xác và trung thực với Ground Truth, giải thích rõ ràng lý do cần có Chunk overlap và giá trị cụ thể của nó. Ngôn ngữ sử dụng cũng phù hợp với môi trường doanh nghiệp."
+          },
+          "gpt-4o-mini": {
+            "accuracy": 5,
+            "faithfulness": 5,
+            "professionalism": 5,
+            "reasoning": "Câu trả lời chính xác và đầy đủ, phù hợp với ngữ cảnh và sử dụng ngôn ngữ chuyên nghiệp."
+          }
+        },
+        "metrics": {
+          "avg_accuracy": 5.0,
+          "avg_faithfulness": 5.0
+        }
+      },
+      "total_tokens": 304,
+      "agent_cost": 0.00228,
+      "status": "pass"
+    }
+  ]
+}

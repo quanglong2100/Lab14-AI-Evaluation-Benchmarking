@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "version": "Agent_V2_Optimized",
+    "model": "gpt-4o",
+    "total": 50,
+    "timestamp": "2026-04-21 17:55:50"
+  },
+  "metrics": {
+    "avg_score": 3.95,
+    "hit_rate": 0.34,
+    "agreement_rate": 0.94,
+    "cost_per_eval": 0.00632,
+    "total_cost_usd": 0.316
+  }
+}
