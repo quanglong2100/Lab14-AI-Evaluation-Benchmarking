@@ -30,7 +30,7 @@ class BenchmarkRunner:
             "test_case": test_case["question"],
             "agent_response": response["answer"],
             "latency": latency,
-            "ragas": ragas_scores,
+            "retrieval": ragas_scores,
             "judge": judge_result,
             # token tracking
             "in_tokens": response["metadata"].get("prompt_tokens", 0),

@@ -31,9 +31,8 @@ class RealEvaluator:
             "retrieval": {
                 "hit_rate": hit_rate,
                 "mrr": mrr
-            },
-            "faithfulness": 0.0, # Sẽ được Judge cập nhật sau hoặc để Ragas xử lý
-            "relevancy": 0.0
+            }
+            
         }
 
 async def run_evaluation_pipeline(version_name: str, model_name: str):
@@ -104,7 +103,7 @@ async def main():
     
     # BƯỚC 2: Chạy Benchmark cho V2 (Optimized - dùng gpt-4o hoặc prompt mới)
     # Ở đây ta giả lập V2 bằng cách chạy lại (trong thực tế bạn có thể thay đổi Agent logic)
-    v2_results, v2_summary = await run_evaluation_pipeline("Agent_V2_Optimized", "gpt-4o-mini")
+    v2_results, v2_summary = await run_evaluation_pipeline("Agent_V2_Optimized", "gpt-4o")
     
     # BƯỚC 3: So sánh kết quả (Regression Analysis)
     score_v1 = v1_summary["metrics"]["avg_score"]
