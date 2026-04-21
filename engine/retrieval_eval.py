@@ -213,17 +213,72 @@ if __name__ == "__main__":
         {
             "question": "Gói Pro có giá bao nhiêu?",
             "expected_retrieval_ids": ["PROD_002"],
-            "retrieved_ids": ["PROD_001", "PROD_003", "TECH_002"],   # MISS
+            "retrieved_ids": ["PROD_001", "PROD_003", "TECH_002"],   # MISS (không có ID đúng)
         },
         {
             "question": "Thời gian phản hồi trên Slack là bao lâu?",
             "expected_retrieval_ids": ["POL_001"],
-            "retrieved_ids": ["TECH_001", "POL_001", "PROD_002"],
+            "retrieved_ids": ["TECH_001", "POL_001", "PROD_002"],   # HIT (Rank 2)
         },
         {
-            "question": "Adversarial: câu ngoài context",
+            "question": "Quy định về bảo mật mật khẩu nội bộ?",
+            "expected_retrieval_ids": ["POL_004"],
+            "retrieved_ids": ["POL_002", "POL_005", "POL_004"],   # HIT (Rank 3 - Borderline)
+        },
+        {
+            "question": "Kiến trúc Microservices gồm những thành phần nào?",
+            "expected_retrieval_ids": ["TECH_001"],
+            "retrieved_ids": ["TECH_001", "TECH_002", "TECH_003"],   # HIT (Rank 1 - Perfect)
+        },
+        {
+            "question": "Kết hợp: Gói Pro và Model dùng cho phân tích phức tạp?",
+            "expected_retrieval_ids": ["PROD_002", "TECH_002"],
+            "retrieved_ids": ["PROD_002", "TECH_002", "TECH_001"],   # HIT (Multi-match)
+        },
+        {
+            "question": "Kết hợp: Trợ cấp internet và Ghế công thái học?",
+            "expected_retrieval_ids": ["POL_005"],
+            "retrieved_ids": ["PROD_001", "POL_005", "POL_002"],   # HIT (Rank 2)
+        },
+        {
+            "question": "Câu hỏi bẫy: Dịch vụ vận chuyển quốc tế?",
             "expected_retrieval_ids": [],
-            "retrieved_ids": [],
+            "retrieved_ids": ["PROD_001", "PROD_002", "PROD_003"],   # HIT (Vì expected rỗng)
+        },
+        {
+            "question": "Lỗi nặng: Tìm sai hoàn toàn nội dung?",
+            "expected_retrieval_ids": ["TECH_005"],
+            "retrieved_ids": ["POL_001", "POL_002", "POL_003"],   # MISS
+        },
+        {
+            "question": "Hệ thống RAG Pipeline v2.1 có gì mới?",
+            "expected_retrieval_ids": ["TECHNICAL_GUIDE_000"],
+            "retrieved_ids": ["TECH_001", "TECH_002", "POL_001", "POL_004", "TECHNICAL_GUIDE_000"], # MISS (Rank 5 > Top 3)
+        },
+        {
+            "question": "Yêu cầu về độ dài mật khẩu công ty?",
+            "expected_retrieval_ids": ["POL_004"],
+            "retrieved_ids": ["POL_001", "POL_004"],   # HIT (Rank 2)
+        },
+        {
+            "question": "So sánh model gpt-4o và gpt-4o-mini?",
+            "expected_retrieval_ids": ["TECH_002"],
+            "retrieved_ids": ["TECH_002", "TECH_001"],   # HIT (Rank 1)
+        },
+        {
+            "question": "Làm thế nào để yêu cầu hỗ trợ mua ghế công thái học?",
+            "expected_retrieval_ids": ["POL_005"],
+            "retrieved_ids": ["POL_002", "POL_003", "POL_005"],   # HIT (Rank 3)
+        },
+        {
+            "question": "Thông tin về giá gói Enterprise?",
+            "expected_retrieval_ids": ["PROD_003"],
+            "retrieved_ids": ["PROD_001", "PROD_002", "TECH_002"],   # MISS (Đang tìm nhầm gói)
+        },
+        {
+            "question": "Daily Stand-up diễn ra lúc mấy giờ?",
+            "expected_retrieval_ids": ["POL_003"],
+            "retrieved_ids": ["POL_003"],   # HIT (Rank 1 - Top 1 success)
         },
     ]
 
