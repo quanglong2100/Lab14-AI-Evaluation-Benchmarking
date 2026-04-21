@@ -4,4 +4,11 @@ __pycache__/
 .DS_Store
 reports/
 # data/golden_set.jsonl
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6469f6c546e3042b737ad302a34eaff16367a1c5
 .venv
+=======
+.agent
+>>>>>>> 142904c520a8b99e40ab78a5604de02fffe8b388
