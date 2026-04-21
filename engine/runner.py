@@ -32,6 +32,14 @@ class BenchmarkRunner:
             "latency": latency,
             "ragas": ragas_scores,
             "judge": judge_result,
+            # token tracking
+            "in_tokens": response["metadata"].get("prompt_tokens", 0),
+            "out_tokens": response["metadata"].get("completion_tokens", 0),
+            "total_tokens": response["metadata"].get("total_tokens", 0),
+
+            # agent cost
+            "agent_cost": response["metadata"].get("estimated_cost_usd", 0),
+            
             "status": "fail" if judge_result["final_score"] < 3 else "pass"
         }
 
