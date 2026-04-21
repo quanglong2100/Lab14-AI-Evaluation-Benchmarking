@@ -172,7 +172,7 @@ class RetrievalEvaluator:
     def print_report(self, results: Dict) -> None:
         """In báo cáo retrieval đẹp ra console."""
         print("\n" + "=" * 50)
-        print("📊 RETRIEVAL EVALUATION REPORT")
+        print("RETRIEVAL EVALUATION REPORT")
         print("=" * 50)
         print(f"  Top-K           : {results['top_k']}")
         print(f"  Total cases     : {results['total']}")
@@ -186,13 +186,13 @@ class RetrievalEvaluator:
         # Top 5 cases bị miss
         failed_cases = [c for c in results["per_case_details"] if c["status"] == "fail"]
         if failed_cases:
-            print(f"\n❌ {len(failed_cases)} cases bị MISS (hiển thị tối đa 5):")
+            print(f"\{len(failed_cases)} cases bị MISS (hiển thị tối đa 5):")
             for case in failed_cases[:5]:
                 print(f"   Q: {case['question'][:70]}...")
                 print(f"      Expected : {case['expected_ids']}")
                 print(f"      Retrieved: {case['retrieved_ids']}")
         else:
-            print("\n✅ Tất cả cases đều HIT!")
+            print("\Tất cả cases đều HIT!")
 
 
 # -------------------------------------------------------------------------
@@ -239,4 +239,4 @@ if __name__ == "__main__":
     assert ev.calculate_mrr(["A"], ["A", "B"]) == 1.0,             "MRR rank-1 failed"
     assert ev.calculate_mrr(["A"], ["B", "A"]) == 0.5,             "MRR rank-2 failed"
     assert ev.calculate_mrr(["A"], ["B", "C"]) == 0.0,             "MRR not-found failed"
-    print("✅ Tất cả unit tests đều PASSED!")
+    print("Tất cả unit tests đều PASSED!")
