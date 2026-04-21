@@ -1,0 +1,35 @@
+(venv_AI) coconut@noland Lab14-AI-Evaluation-Benchmarking on  main [!] 
+❯  python main.py
+=== AI EVALUATION FACTORY: REGRESSION MODE ===
+
+🚀 Đang khởi động Benchmark: Agent_V1_Base (gpt-4o-mini)
+
+🚀 Đang khởi động Benchmark: Agent_V2_Optimized (gpt-4o)
+
+==================================================
+📊 KẾT QUẢ SO SÁNH (V1 vs V2)
+--------------------------------------------------
+V1: Score 3.63 | Hit Rate 34.0%
+V2: Score 3.95 | Hit Rate 34.0%
+Delta: Score (+0.32) | Hit Rate (+0.00)
+Cost per Eval (V2): $0.00632
+==================================================
+
+🚀 QUYẾT ĐỊNH CUỐI CÙNG: ✅ APPROVE: Bản cập nhật vượt qua bài kiểm tra chất lượng.
+
+✅ Đã ghi báo cáo vào thư mục /reports. Sẵn sàng chạy check_lab.py!
+(venv_AI) coconut@noland Lab14-AI-Evaluation-Benchmarking on  main [!⇣] 
+❯  python ./check_lab.py
+🔍 Đang kiểm tra định dạng bài nộp...
+✅ Tìm thấy: reports/summary.json
+✅ Tìm thấy: reports/benchmark_results.json
+✅ Tìm thấy: analysis/failure_analysis.md
+
+--- Thống kê nhanh ---
+Tổng số cases: 50
+Điểm trung bình: 3.95
+✅ Đã tìm thấy Retrieval Metrics (Hit Rate: 34.0%)
+✅ Đã tìm thấy Multi-Judge Metrics (Agreement Rate: 94.0%)
+✅ Đã tìm thấy thông tin phiên bản Agent (Regression Mode)
+
+🚀 Bài lab đã sẵn sàng để chấm điểm!
